@@ -1,0 +1,8 @@
+CREATE DATABASE test_suplos;
+
+USE test_suplos;
+
+CREATE TABLE BienesGuardados (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+bienes_id INT(6) UNSIGNED NOT NULL
+);

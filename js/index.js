@@ -48,5 +48,54 @@ function playVideoOnScroll(){
     }, 10)
 }
 
+
+function inicializarSelects(){
+  fetch('/api/cities.php')
+  .then(response => response.json())
+  .then(data => {
+    $.each(data, function (i, item) {
+      $('#selectCiudad').append($('<option>', { 
+          value: item,
+          text : item 
+      }));
+  });
+  });
+
+  fetch('/api/types.php')
+  .then(response => response.json())
+  .then(data => {
+    $.each(data, function (i, item) {
+      $('#selectTipo').append($('<option>', { 
+          value: item,
+          text : item 
+      }));
+  });
+  });
+};
+
+
+function inicializarContenido(){
+  fetch('/api/filter.php')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    $.each(data, function (i, item) {
+      $('#resultContainerCollection').append(`<li class="collection-item">
+      <b>Direccion:</b> <span>`+item['Direccion']+`</span> <br>
+      <b>Ciudad:</b> <span>`+item['Ciudad']+`</span> <br>
+      <b>Telefono:</b> <span>`+item['Telefono']+`</span> <br>
+      <b>Codigo Postal:</b> <span>`+item['Codigo_Postal']+`</span> <br>
+      <b>Tipo:</b> <span>`+item['Tipo']+`</span> <br>
+      <b>Precio:</b> <span>`+item['Precio']+`</span> <br>
+      <button class="btn waves-effect waves-light guardarFavorito" type="button" name="`+'guardar_'+item['Id']+`" id="`+'guardar_'+item['Id']+`" onclick="guardarContenido(this)">
+      Guardar
+      </button>
+    </li>`);
+  });
+  });
+}
+
 inicializarSlider();
-playVideoOnScroll();
+//playVideoOnScroll();
+inicializarSelects();
+inicializarContenido();

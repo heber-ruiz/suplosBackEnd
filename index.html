@@ -44,7 +44,7 @@
             <input type="text" id="rangoPrecio" name="precio" value="" />
           </div>
           <div class="botonField">
-            <input type="submit" class="btn white" value="Buscar" id="submitButton">
+            <input type="button" class="btn white" value="Buscar" id="submitButton">
           </div>
         </div>
       </form>
@@ -59,6 +59,10 @@
           <div class="tituloContenido card" style="justify-content: center;">
             <h5>Resultados de la búsqueda:</h5>
             <div class="divider"></div>
+            <div id="resultContainer" style="width:100%">
+              <ul class="collection" id="resultContainerCollection">  
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -68,6 +72,10 @@
           <div class="tituloContenido card" style="justify-content: center;">
             <h5>Bienes guardados:</h5>
             <div class="divider"></div>
+            <div id="guardadosContainer" style="width:100%">
+              <ul class="collection" id="guardadosContainerCollection">  
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -83,7 +91,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
       $( document ).ready(function() {
-          $( "#tabs" ).tabs();
+          $( "#tabs" ).tabs({activate: buscarFavoritos});
+          $('#submitButton').click(buscarContenido);
       });
     </script>
   </body>
