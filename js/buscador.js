@@ -40,7 +40,7 @@ function buscarContenido(){
         <b>Codigo Postal:</b> <span>`+item['Codigo_Postal']+`</span> <br>
         <b>Tipo:</b> <span>`+item['Tipo']+`</span> <br>
         <b>Precio:</b> <span>`+item['Precio']+`</span> <br>
-        <button class="btn waves-effect waves-light" type="submit" name="`+'guardar'+item['Id']+`" id="`+'guardar_'+item['Id']+`">
+        <button class="btn waves-effect waves-light guardarFavorito" type="submit" name="`+'guardar'+item['Id']+`" id="`+'guardar_'+item['Id']+`">
         Borrar
         </button>
       </li>`);
